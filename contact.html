@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Swapnesh Kumar R — email, phone, address and a message form.">
+  <title>Contact — Swapnesh Kumar R</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">SK</span>
+        <span class="brand-name">Swapnesh Kumar R</span>
+      </a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="resume.html">Resume</a>
+        <a class="nav-link" href="biodata.html">Bio-data</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+        <button class="theme-toggle" aria-label="Toggle dark mode">☾</button>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-banner">
+    <div class="container">
+      <div class="eyebrow">Get in touch</div>
+      <h1>Contact</h1>
+      <p>Open to internships, projects and a good game of chess. Send a message or reach me directly using the details below.</p>
+      <div class="banner-actions">
+        <a class="btn btn-primary" href="mailto:swapneshkumar765@gmail.com">Email me →</a>
+        <a class="btn btn-ghost" href="resume.html">View Resume</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="container contact-layout">
+
+    <!-- ===== Contact details ===== -->
+    <div class="contact-info">
+      <div class="card contact-item reveal">
+        <div class="ci-icon">✉</div>
+        <div>
+          <h3>Email</h3>
+          <p><a href="mailto:swapneshkumar765@gmail.com">swapneshkumar765@gmail.com</a></p>
+          <button class="mini-btn copy-btn" data-copy="swapneshkumar765@gmail.com">Copy</button>
+        </div>
+      </div>
+
+      <div class="card contact-item reveal">
+        <div class="ci-icon">☎</div>
+        <div>
+          <h3>Phone</h3>
+          <p><a href="tel:+916362036685">6362036685</a></p>
+          <button class="mini-btn copy-btn" data-copy="6362036685">Copy</button>
+        </div>
+      </div>
+
+      <div class="card contact-item reveal">
+        <div class="ci-icon">⌖</div>
+        <div>
+          <h3>Address</h3>
+          <p>Putdas Road, Kanakapura 562117<br>Karnataka, India</p>
+        </div>
+      </div>
+
+      <div class="card contact-item reveal">
+        <div class="ci-icon">⌥</div>
+        <div>
+          <h3>GitHub <span class="placeholder-note">ADD LINK</span></h3>
+          <p>Profile coming soon. Replace this line with your GitHub URL.</p>
+        </div>
+      </div>
+
+      <div class="card avail reveal">
+        <span class="dot"></span>
+        <div>
+          <strong>Available for internships</strong>
+          <p>Usually replies within a day or two.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Message form ===== -->
+    <div class="card form-card reveal">
+      <h2>Send a message</h2>
+      <p class="form-sub">This opens your email app with the message ready to send.</p>
+
+      <form id="contactForm" novalidate>
+        <div class="field">
+          <label for="cName">Your name</label>
+          <input type="text" id="cName" name="name" placeholder="e.g. Anita Rao" autocomplete="name">
+          <span class="err" data-for="cName"></span>
+        </div>
+
+        <div class="field">
+          <label for="cEmail">Your email</label>
+          <input type="email" id="cEmail" name="email" placeholder="you@example.com" autocomplete="email">
+          <span class="err" data-for="cEmail"></span>
+        </div>
+
+        <div class="field">
+          <label for="cSubject">Subject</label>
+          <select id="cSubject" name="subject">
+            <option>Internship opportunity</option>
+            <option>Project collaboration</option>
+            <option>Question about my resume</option>
+            <option>Just saying hello</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="cMsg">Message <small id="counter">0 / 500</small></label>
+          <textarea id="cMsg" name="message" rows="6" maxlength="500" placeholder="Write your message here..."></textarea>
+          <span class="err" data-for="cMsg"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Send message →</button>
+        <p class="form-status" id="formStatus" role="status"></p>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <p>© <span id="year">2026</span> Swapnesh Kumar R · Built with HTML, CSS &amp; jQuery</p>
+      <nav class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="resume.html">Resume</a>
+        <a href="biodata.html">Bio-data</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

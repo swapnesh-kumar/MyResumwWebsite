@@ -206,3 +206,72 @@ $(function () {
   /* ---------- 12. Footer year ---------- */
   $("#year").text(new Date().getFullYear());
 });
+
+
+/* =========================================================
+   Contact page: copy buttons, live counter, validation,
+   and mailto hand-off (no server needed).
+   ========================================================= */
+$(function () {
+  if (!$("#contactForm").length) return;
+
+  /* Copy buttons */
+  $(".copy-btn").on("click", function () {
+    var $b = $(this);
+    var text = $b.data("copy");
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(text).then(function () {
+        $b.text("Copied ✓");
+        setTimeout(function () { $b.text("Copy"); }, 1400);
+      });
+    }
+  });
+
+  /* Character counter */
+  $("#cMsg").on("input", function () {
+    $("#counter").text($(this).val().length + " / 500");
+  });
+
+  /* Helpers */
+  function setError(id, msg) {
+    var $field = $("#" + id).closest(".field");
+    $field.toggleClass("invalid", !!msg);
+    $('.err[data-for="' + id + '"]').text(msg || "");
+  }
+
+  var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+  function validate() {
+    var ok = true;
+    var name = $.trim($("#cName").val());
+    var email = $.trim($("#cEmail").val());
+    var msg = $.trim($("#cMsg").val());
+
+    setError("cName", name.length < 2 ? "Please enter your name." : "");
+    setError("cEmail", emailRe.test(email) ? "" : "Please enter a valid email address.");
+    setError("cMsg", msg.length < 10 ? "Message should be at least 10 characters." : "");
+
+    $(".field.invalid").each(function () { ok = false; });
+    return ok;
+  }
+
+  /* Clear an error as soon as the user edits the field */
+  $("#cName, #cEmail, #cMsg").on("input", function () {
+    setError(this.id, "");
+  });
+
+  /* Submit: validate, then open the email app */
+  $("#contactForm").on("submit", function (e) {
+    e.preventDefault();
+    if (!validate()) {
+      $("#formStatus").css("color", "var(--accent)").text("Please fix the highlighted fields.");
+      return;
+    }
+    var subject = $("#cSubject").val();
+    var body = $("#cMsg").val() + "\n\n— " + $.trim($("#cName").val()) + " (" + $.trim($("#cEmail").val()) + ")";
+    var url = "mailto:swapneshkumar765@gmail.com?subject=" + encodeURIComponent(subject) +
+              "&body=" + encodeURIComponent(body);
+    $("#formStatus").css("color", "var(--teal)").text("Opening your email app…");
+    window.location.href = url;
+  });
+});
